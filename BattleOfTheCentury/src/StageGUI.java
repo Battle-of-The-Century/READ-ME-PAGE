@@ -39,6 +39,7 @@ public class StageGUI extends JFrame{
 		super(title = "Battle of The Century");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 2));
+		// min width is 600 
 		setSize(600, 400);	
 		createFirstPanel();
 		createSecondPanel1();
