@@ -79,13 +79,13 @@ public class StageGUI extends JFrame{
 
 	
 	private void createFirstPanel() {
-		firstPanel.add(map);
+		//firstPanel.add(map);
 		contents = getContentPane();
-		contents.setLayout(new GridLayout(7,7));
+		contents.setLayout(new GridLayout(6,6));
 		
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < 6; i++)
 		{
-			for(int j = 0; j < 7; j++)
+			for(int j = 0; j < 6; j++)
 			{
 				squares[i][j] = new JButton();
 				if ((i + j) % 2 != 0)
