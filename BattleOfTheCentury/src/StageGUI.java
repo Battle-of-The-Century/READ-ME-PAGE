@@ -1,18 +1,44 @@
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.*;
 
+
+
+
 public class StageGUI extends JFrame{
+	
+
+	
 	private JButton attackBtn = new JButton("Attack");
 	private JButton moveBtn = new JButton("Move");
 	
 	private JButton map = new JButton("Map");
+	private JButton[][] squares = new JButton[7][7];
+	
+	//Colors:
+	private Color colorBlack = Color.BLACK; 
+	
+	//Images:
+	//private ImageIcon *variable ex. pawn* = new ImageIcon("white pawn.jpg");
 	
 	private JLabel selectLbl = new JLabel("Select Unit");
 	private JLabel chooseLbl = new JLabel("Actions");
 	private JTextArea historyTxtArea = new JTextArea();
+	
+	//for squares for map
+	private Container contents;
+	
+	//public GridLayoutManager() {
+		//super("GUI GridLayout Manager - (click a valid square to move piece)")
+		
+		
+		
+	//}
 	
 	Hero hero = new Hero(25, 10, 25, 3);
 	Soldier soldier = new Soldier(15, 5, 15, 5);
@@ -54,6 +80,22 @@ public class StageGUI extends JFrame{
 	
 	private void createFirstPanel() {
 		firstPanel.add(map);
+		contents = getContentPane();
+		contents.setLayout(new GridLayout(7,7));
+		
+		for (int i = 0; i < 7; i++)
+		{
+			for(int j = 0; j < 7; j++)
+			{
+				squares[i][j] = new JButton();
+				if ((i + j) % 2 != 0)
+				{
+					squares[i][j].setBackground(colorBlack);
+				}
+				contents.add(squares[i][j]);
+				//squares[i][j].addActionListener(l);
+			}
+		}
 	}
 
 	private void createSecondPanel1() {
