@@ -1,4 +1,5 @@
 
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -30,8 +31,7 @@ public class StageGUI extends JFrame{
 	private JLabel chooseLbl = new JLabel("Actions");
 	private JTextArea historyTxtArea = new JTextArea();
 	
-	//for squares for map
-	private Container contents;
+	
 	
 	//public GridLayoutManager() {
 		//super("GUI GridLayout Manager - (click a valid square to move piece)")
@@ -66,7 +66,10 @@ public class StageGUI extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 2));
 		// min width is 600 
-		setSize(600, 400);	
+		setSize(600, 400);
+		
+		setResizable(false);
+		
 		createFirstPanel();
 		createSecondPanel1();
 		createSecondPanel2();
@@ -77,10 +80,16 @@ public class StageGUI extends JFrame{
 		setVisible(true);
 	}
 
+	//for squares for map
+		private Container contents;
 	
 	private void createFirstPanel() {
-		//firstPanel.add(map);
+		//contents.setLayout(new GridLayout(6,6));
+		firstPanel.add(map);
+		
 		contents = getContentPane();
+		//contents.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		
 		contents.setLayout(new GridLayout(6,6));
 		
 		for (int i = 0; i < 6; i++)
@@ -122,6 +131,7 @@ public class StageGUI extends JFrame{
 
 	private void addPanelsToFrame() {
 		add(firstPanel);
+		//add();
 		add(rightHelperPanel);
 		
 	}
