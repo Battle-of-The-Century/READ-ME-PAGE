@@ -90,7 +90,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	
 
 	
-	ButtonHandler buttonHandler = new ButtonHandler();
+	//ButtonHandler buttonHandler = new ButtonHandler();
 	
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
@@ -113,13 +113,6 @@ public class StageGUI extends JFrame implements ActionListener{
 		pointsTxtArea.setEditable(false);
 		statsTxtArea.setEditable(false);
 	}
-
-	
-
-	//for squares for map
-	private Container contents;
-
-	
 	
 
 		
@@ -130,19 +123,19 @@ public class StageGUI extends JFrame implements ActionListener{
 			for(int j = 0; j < 3; j++)
 			{
 				squares[i][j] = new JButton();
-				if ((i + j) % 2 != 0)
-				{
-					squares[i][j].setBackground(colorGray);
-				}
+				//squares[i][j].addActionListener(buttonHandler);
+				
+				
+				//squares[3][1] = new JButton(Soldier);
+				//squares[3][2] = new JButton(Hero);
+				//squares[3][3] = new JButton(Tank);
 				firstPanel.add(squares[i][j]);
-				squares[i][j].addActionListener(buttonHandler);
-				
-				squares[3][1] = new JButton(Soldier);
-				squares[3][2] = new JButton(Hero);
-				squares[3][3] = new JButton(Tank);
-				
 			}
 		}
+		squares[2][0].setBackground(colorGray);
+		squares[2][1].setBackground(Color.YELLOW);
+		squares[2][2].setBackground(Color.BLUE);
+		
 		//Its supposed to set the icon I set for the hero
 		// this line gives us null pointer exception *down below*????
 		//squares[row][col].setIcon(Hero);
@@ -192,61 +185,14 @@ public class StageGUI extends JFrame implements ActionListener{
 	}
 	
 	
-	private boolean isValidMove (int i, int j) {
-		
-		int rowDelta = Math.abs(i - row);
-		int colDelta = Math.abs(j - col);
-		
-		if ((rowDelta == 1) && (colDelta ==2)) {
-			
-			return true;
-		}
-
-			if ((rowDelta == 1) && (colDelta ==2)) {
-			
-				return true;
-			}
-			return false;
-	}
-
+	
 	
 	//
-	private void processClick(int i, int j) {
-		
-		if (isValidMove(i,j) == false)
-		{
-			return;
-			
-		}
-		squares[row][col].setIcon(null);
-		squares[i][j].setIcon(Hero);
-		row = i;
-		col = j;
-		
-	}
 	
 	
 	
-	private class ButtonHandler implements ActionListener {
-		
-		public void actionPerformed(ActionEvent e) {
-			
-			Object source = e.getSource();
-			
-			for (int i = 0; i < 7; i++)
-			{
-				for(int j = 0; j < 7; j++)
-				{
-					if (source == squares[i][j])
-					{
-						
-						processClick(i,j);
-						return;
-					}
-				}
-			}
-		}
-	}
+	
+	
 	
 	private void setActionListener() {
 		attackBtn.addActionListener(this);
