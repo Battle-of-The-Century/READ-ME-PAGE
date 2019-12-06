@@ -98,7 +98,7 @@ public class StageGUI extends JFrame{
 		// min width is 600
 		setSize(800, 800);
 
-		//setResizable(false);
+		setResizable(false);
 	
 
 		createFirstPanel();
