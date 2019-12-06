@@ -12,17 +12,20 @@ import javax.swing.*;
 
 
 
-public class StageGUI extends JFrame{
+public class StageGUI extends JFrame implements ActionListener{
 	private Icon Hero = new ImageIcon(getClass().getResource("Hero.jpg"));
-	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
 	private Icon Tank = new ImageIcon(getClass().getResource("Tank.jpg"));
 	private Icon Soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
+	
+	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
+	private Icon arrow2 = new ImageIcon(getClass().getResource("arrow2.png"));
+	private Icon arrow3 = new ImageIcon(getClass().getResource("arrow3.png"));
 
 
 	private JButton attackBtn = new JButton("Attack");
 	private JButton tankUpAttBtn = new JButton(arrow);
-	private JButton heroUpAttBtn = new JButton(arrow);
-	private JButton soldierUpAttBtn = new JButton(arrow);
+	private JButton heroUpAttBtn = new JButton(arrow2);
+	private JButton soldierUpAttBtn = new JButton(arrow3);
 
 	//-private JButton map = new JButton("Map");
 	private JButton[][] squares = new JButton[8][8];
@@ -66,8 +69,6 @@ public class StageGUI extends JFrame{
 	//}
 
 	
-	Soldier soldier = new Soldier(15, 5, 15, 5);
-	Tank tank = new Tank(35, 7, 35, 1);
 
 	//Map panel
 	private JPanel firstPanel = new JPanel();
@@ -253,12 +254,32 @@ public class StageGUI extends JFrame{
 		}
 	}
 	
-	
+	private void setActionListener() {
+		attackBtn.addActionListener(this);
+		tankUpAttBtn.addActionListener(this);
+		heroUpAttBtn.addActionListener(this);
+		soldierUpAttBtn.addActionListener(this);
+		
+	}
 	
 	
 
-	public static void main(String[] args) {
-		StageGUI game = new StageGUI("ok");
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String callingBtn = e.getActionCommand();
+		
+		if (callingBtn.equalsIgnoreCase("Attack")) {
+			
+			
+		} else if (callingBtn.equalsIgnoreCase("arrow")) {
+			
+		} else if (callingBtn.equalsIgnoreCase("arrow2")) {
+			
+		} else if (callingBtn.equalsIgnoreCase("arrow3")) {
+			
+		}
+		
 	}
 
 

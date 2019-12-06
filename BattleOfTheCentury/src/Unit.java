@@ -1,43 +1,29 @@
 
 public class Unit  {
-	private int healthPoints;
+	private String name;
 	private int attackPoints;
-	private int defencePoint;
-	private int movementSpeed;
+
 	
-	public Unit(int healthPoints, int attackPoints, int defencePoints, int movementSpeed) {
-		this.healthPoints = healthPoints;
+	public Unit(String name, int attackPoints) {
+		this.name = name;
 		this.attackPoints = attackPoints;
-		this.defencePoint = defencePoints;
-		this.movementSpeed = movementSpeed;
+		
 	}
-
+	
 	/**
-	 * @return the movementSpeed
+	 * 
+	 * @return
 	 */
-	public int getMovementSpeed() {
-		return movementSpeed;
+	public String getName() {
+		return name;
 	}
-
+	
 	/**
-	 * @param movementSpeed the movementSpeed to set
+	 * 
+	 * @param name
 	 */
-	public void setMovementSpeed(int movementSpeed) {
-		this.movementSpeed = movementSpeed;
-	}
-
-	/**
-	 * @return the defencePoint
-	 */
-	public int getDefencePoint() {
-		return defencePoint;
-	}
-
-	/**
-	 * @param defencePoint the defencePoint to set
-	 */
-	public void setDefencePoint(int defencePoint) {
-		this.defencePoint = defencePoint;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	/**
@@ -53,18 +39,11 @@ public class Unit  {
 	public void setAttackPoints(int attackPoints) {
 		this.attackPoints = attackPoints;
 	}
-
-	/**
-	 * @return the healthPoints
-	 */
-	public int getHealthPoints() {
-		return healthPoints;
-	}
-
-	/**
-	 * @param healthPoints the healthPoints to set
-	 */
-	public void setHealthPoints(int healthPoints) {
-		this.healthPoints = healthPoints;
+	
+	
+	@Override
+	public String toString() {
+		String info = getName() + " Attack Points: " + getAttackPoints();
+		return info;
 	}
 }
