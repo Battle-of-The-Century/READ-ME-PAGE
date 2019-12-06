@@ -15,9 +15,9 @@ import javax.swing.*;
 public class StageGUI extends JFrame implements ActionListener{
 	
 	
-	private Icon Hero = new ImageIcon(getClass().getResource("Hero.jpg"));
-	private Icon Tank = new ImageIcon(getClass().getResource("Tank.jpg"));
-	private Icon Soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
+	private Icon hero = new ImageIcon(getClass().getResource("Hero.jpg"));
+	private Icon tank = new ImageIcon(getClass().getResource("Tank.jpg"));
+	private Icon soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 	
 	//Images:
 	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
@@ -127,9 +127,9 @@ public class StageGUI extends JFrame implements ActionListener{
 		squares[2][1].setBackground(Color.YELLOW);
 		squares[2][2].setBackground(Color.BLUE);
 		
-		squares[2][0] = new JButton(Soldier);
-		squares[2][1] = new JButton(Hero);
-		squares[2][2] = new JButton(Tank);
+		squares[2][0].setIcon(soldier);
+		squares[2][1].setIcon(hero);
+		squares[2][2].setIcon(tank);
 		
 	}
 	//secondPanel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "POINTS"));
@@ -145,11 +145,6 @@ public class StageGUI extends JFrame implements ActionListener{
 	}
 
 	private void createSecondPanel2() {
-
-		
-		
-
-		
 		
 		secondPanel2.add(heroLbl);
 		secondPanel2.add(heroUpAttBtn);
