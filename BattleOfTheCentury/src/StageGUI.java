@@ -233,9 +233,9 @@ public class StageGUI extends JFrame implements ActionListener{
 			
 			Object source = e.getSource();
 			
-			for (int i = 0; i < 7; i++)
+			for (int i = 0; i < 3; i++)
 			{
-				for(int j = 0; j < 7; j++)
+				for(int j = 0; j < 3; j++)
 				{
 					if (source == squares[i][j])
 					{
