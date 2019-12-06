@@ -88,7 +88,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	private JPanel rightHelperPanel = new JPanel(new GridLayout(3,1));
 	
 	
-
+//
 	
 	//ButtonHandler buttonHandler = new ButtonHandler();
 	
