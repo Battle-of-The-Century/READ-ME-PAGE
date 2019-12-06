@@ -56,8 +56,7 @@ public class StageGUI extends JFrame{
 	Hero hero = new Hero(25, 10, 25, 3);
 	Soldier soldier = new Soldier(15, 5, 15, 5);
 	Tank tank = new Tank(35, 7, 35, 1);
-	private Army[] units = {soldier, tank, hero};
-	private JComboBox unit = new JComboBox(units);
+
 
 	//Map panel
 	private JPanel firstPanel = new JPanel();
@@ -130,7 +129,7 @@ public class StageGUI extends JFrame{
 
 	private void createSecondPanel2() {
 		secondPanel2.add(selectLbl);
-		secondPanel2.add(unit);
+		
 	}
 	private void createSecondPanel3() {
 		secondPanel3.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "History"));
