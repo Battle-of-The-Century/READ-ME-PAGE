@@ -13,6 +13,8 @@ import javax.swing.*;
 
 
 public class StageGUI extends JFrame implements ActionListener{
+	
+	
 	private Icon Hero = new ImageIcon(getClass().getResource("Hero.jpg"));
 	private Icon Tank = new ImageIcon(getClass().getResource("Tank.jpg"));
 	private Icon Soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
@@ -133,9 +135,10 @@ public class StageGUI extends JFrame implements ActionListener{
 		squares[2][1].setBackground(Color.YELLOW);
 		squares[2][2].setBackground(Color.BLUE);
 		
-		//Its supposed to set the icon I set for the hero
-		// this line gives us null pointer exception *down below*????
-		//squares[row][col].setIcon(Hero);
+		squares[2][0] = new JButton(Soldier);
+		squares[2][1] = new JButton(Hero);
+		squares[2][2] = new JButton(Tank);
+		
 	}
 	//secondPanel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "POINTS"));
 	private void createSecondPanel1() {
