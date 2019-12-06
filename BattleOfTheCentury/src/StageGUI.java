@@ -90,8 +90,9 @@ public class StageGUI extends JFrame implements ActionListener{
 	
 //
 	
+
 	//ButtonHandler buttonHandler = new ButtonHandler();
-	
+
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,6 +124,13 @@ public class StageGUI extends JFrame implements ActionListener{
 			for(int j = 0; j < 3; j++)
 			{
 				squares[i][j] = new JButton();
+
+				if ((i + j) % 2 != 0)
+				{
+					squares[i][j].setBackground(colorGray);
+				}
+				firstPanel.add(squares[i][j]);
+
 				//squares[i][j].addActionListener(buttonHandler);
 				
 				
@@ -185,15 +193,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	}
 	
 	
-	
-	
-	//
-	
-	
-	
-	
-	
-	
+
 	private void setActionListener() {
 		attackBtn.addActionListener(this);
 		tankUpAttBtn.addActionListener(this);
@@ -211,13 +211,16 @@ public class StageGUI extends JFrame implements ActionListener{
 		
 		if (callingBtn.equalsIgnoreCase("Attack")) {
 			
-			
+			//log.append();
 		} else if (callingBtn.equalsIgnoreCase("arrow")) {
 			
+			//log.append();
 		} else if (callingBtn.equalsIgnoreCase("arrow2")) {
 			
+			//log.append();
 		} else if (callingBtn.equalsIgnoreCase("arrow3")) {
 			
+			//log.append();
 		}
 		
 	}
