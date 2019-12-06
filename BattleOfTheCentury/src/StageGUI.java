@@ -116,7 +116,7 @@ public class StageGUI extends JFrame{
 		}
 		//Its supposed to set the icon I set for the hero
 		// this line gives us null pointer exception *down below*????
-		squares[row][col].setIcon(Hero);
+		//squares[row][col].setIcon(Hero);
 	}
 	
 	
