@@ -125,10 +125,7 @@ public class StageGUI extends JFrame implements ActionListener{
 			{
 				squares[i][j] = new JButton();
 
-				if ((i + j) % 2 != 0)
-				{
-					squares[i][j].setBackground(colorGray);
-				}
+			
 				firstPanel.add(squares[i][j]);
 
 				//squares[i][j].addActionListener(buttonHandler);
