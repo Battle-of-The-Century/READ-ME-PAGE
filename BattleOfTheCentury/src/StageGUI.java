@@ -15,11 +15,11 @@ import javax.swing.*;
 public class StageGUI extends JFrame implements ActionListener{
 	
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
-	private Icon Minion = new ImageIcon(getClass().getResource("Minion.jpg"));
+	private Icon Minion = new ImageIcon(getClass().getResource("Minion.png"));
 	
 	
-	private Icon hero = new ImageIcon(getClass().getResource("Hero.jpg"));
-	private Icon tank = new ImageIcon(getClass().getResource("Tank.jpg"));
+	private Icon hero = new ImageIcon(getClass().getResource("Hero.png"));
+	private Icon tank = new ImageIcon(getClass().getResource("Tank.png"));
 	private Icon soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 	
 	//Images:
