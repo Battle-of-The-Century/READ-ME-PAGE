@@ -20,7 +20,7 @@ public class StageGUI extends JFrame{
 	private JButton attackBtn = new JButton("Attack");
 	private JButton moveBtn = new JButton("Move");
 
-	//private JButton map = new JButton("Map");
+	//-private JButton map = new JButton("Map");
 	private JButton[][] squares = new JButton[8][8];
 
 	//Colors:
