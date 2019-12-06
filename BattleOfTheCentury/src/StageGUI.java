@@ -210,7 +210,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	}
 
 	
-	
+	//
 	private void processClick(int i, int j) {
 		
 		if (isValidMove(i,j) == false)
