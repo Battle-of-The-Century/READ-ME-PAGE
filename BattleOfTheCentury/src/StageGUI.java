@@ -38,11 +38,6 @@ public class StageGUI extends JFrame implements ActionListener{
 	//Colors:
 	private Color colorGray = Color.gray;
 	
-	//Position
-	// upper left corner of board is (0,0).
-	private int row = 7;
-	private int col = 1;
-	
 
 
 	private JLabel pointsLbl = new JLabel("POINTS");
@@ -183,6 +178,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	
 	
 
+
 	private void setActionListener() {
 		attackBtn.addActionListener(this);
 		tankUpAttBtn.addActionListener(this);
@@ -213,6 +209,5 @@ public class StageGUI extends JFrame implements ActionListener{
 		}
 		
 	}
-
 
 }
