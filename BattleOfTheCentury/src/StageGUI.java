@@ -135,7 +135,7 @@ public class StageGUI extends JFrame implements ActionListener{
 					squares[i][j].setBackground(colorGray);
 				}
 				firstPanel.add(squares[i][j]);
-				squares[i][j].addActionListener(buttonHandler);
+				//squares[i][j].addActionListener(buttonHandler);
 				
 				squares[3][1] = new JButton(Soldier);
 				squares[3][2] = new JButton(Hero);
@@ -192,60 +192,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	}
 	
 	
-	private boolean isValidMove (int i, int j) {
-		
-		int rowDelta = Math.abs(i - row);
-		int colDelta = Math.abs(j - col);
-		
-		if ((rowDelta == 1) && (colDelta ==2)) {
-			
-			return true;
-		}
 
-			if ((rowDelta == 1) && (colDelta ==2)) {
-			
-				return true;
-			}
-			return false;
-	}
-
-	
-	private void processClick(int i, int j) {
-		
-		if (isValidMove(i,j) == false)
-		{
-			return;
-			
-		}
-		squares[row][col].setIcon(null);
-		squares[i][j].setIcon(Hero);
-		row = i;
-		col = j;
-		
-	}
-	
-	
-	
-	private class ButtonHandler implements ActionListener {
-		
-		public void actionPerformed(ActionEvent e) {
-			
-			Object source = e.getSource();
-			
-			for (int i = 0; i < 3; i++)
-			{
-				for(int j = 0; j < 3; j++)
-				{
-					if (source == squares[i][j])
-					{
-						
-						processClick(i,j);
-						return;
-					}
-				}
-			}
-		}
-	}
 	
 	private void setActionListener() {
 		attackBtn.addActionListener(this);
@@ -264,13 +211,16 @@ public class StageGUI extends JFrame implements ActionListener{
 		
 		if (callingBtn.equalsIgnoreCase("Attack")) {
 			
-			
+			//log.append();
 		} else if (callingBtn.equalsIgnoreCase("arrow")) {
 			
+			//log.append();
 		} else if (callingBtn.equalsIgnoreCase("arrow2")) {
 			
+			//log.append();
 		} else if (callingBtn.equalsIgnoreCase("arrow3")) {
 			
+			//log.append();
 		}
 		
 	}
