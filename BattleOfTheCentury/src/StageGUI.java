@@ -17,6 +17,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	private Icon Tank = new ImageIcon(getClass().getResource("Tank.jpg"));
 	private Icon Soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 	
+	//Images:
 	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
 	private Icon arrow2 = new ImageIcon(getClass().getResource("arrow2.png"));
 	private Icon arrow3 = new ImageIcon(getClass().getResource("arrow3.png"));
@@ -39,11 +40,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	// upper left corner of board is (0,0).
 	private int row = 7;
 	private int col = 1;
-
-	//Images:
 	
-	
-
 
 
 	private JLabel pointsLbl = new JLabel("POINTS");
@@ -61,14 +58,6 @@ public class StageGUI extends JFrame implements ActionListener{
 	private JTextArea pointsTxtArea = new JTextArea("POINTS");
 	private JTextArea statsTxtArea = new JTextArea("STATS");
 
-
-
-	//public GridLayoutManager() {
-		//super("GUI GridLayout Manager - (click a valid square to move piece)")
-
-
-
-	//}
 
 	
 
