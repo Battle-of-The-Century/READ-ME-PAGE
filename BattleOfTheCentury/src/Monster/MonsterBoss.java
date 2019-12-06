@@ -1,7 +1,7 @@
 package Monster;
 
 public class MonsterBoss extends MonsterUnits{
-	private String name = "Hero";
+	private String name = "Boss";
 	
 	public MonsterBoss(int healthPoints, int attackPoints, int defencePoints, int movementSpeed) {
 		super(healthPoints, attackPoints, defencePoints, movementSpeed);
@@ -10,11 +10,11 @@ public class MonsterBoss extends MonsterUnits{
 	
 	@Override
 	public String toString() {
-		String hero = name + " HP: " + super.getHealthPoints()
+		String Boss = name + " HP: " + super.getHealthPoints()
 							  + " Attack: " + super.getAttackPoints()
 							  + " Defence: " + super.getDefencePoint()
 							  + " Speed: " + super.getMovementSpeed();
-		return hero;
+		return Boss;
 	}
 
 }
