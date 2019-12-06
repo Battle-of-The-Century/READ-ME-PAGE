@@ -1,4 +1,4 @@
-
+import Monster.*;
 public class Unit  {
 	private String name;
 	private int attackPoints;
