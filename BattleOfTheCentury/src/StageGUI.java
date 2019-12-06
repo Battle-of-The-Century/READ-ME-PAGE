@@ -28,7 +28,7 @@ public class StageGUI extends JFrame{
 	private JButton[][] squares = new JButton[4][4];
 
 	//Colors:
-	private Color colorBlack = Color.BLACK;
+	private Color colorGray = Color.gray;
 	
 	//Position
 	// upper left corner of board is (0,0).
@@ -129,7 +129,7 @@ public class StageGUI extends JFrame{
 				squares[i][j] = new JButton();
 				if ((i + j) % 2 != 0)
 				{
-					squares[i][j].setBackground(colorBlack);
+					squares[i][j].setBackground(colorGray);
 				}
 				firstPanel.add(squares[i][j]);
 				squares[i][j].addActionListener(buttonHandler);
