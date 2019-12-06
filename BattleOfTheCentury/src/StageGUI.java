@@ -90,7 +90,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	
 
 	
-	ButtonHandler buttonHandler = new ButtonHandler();
+	
 	
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
