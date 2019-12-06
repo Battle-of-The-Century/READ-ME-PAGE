@@ -1,5 +1,5 @@
 
-public class Unit  extends Army{
+public class Unit {
 	private int healthPoints;
 	private int attackPoints;
 	private int defencePoint;

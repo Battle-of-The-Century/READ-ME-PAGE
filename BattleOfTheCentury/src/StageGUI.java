@@ -1,7 +1,7 @@
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -14,11 +14,16 @@ import javax.swing.*;
 
 
 public class StageGUI extends JFrame{
-
+	private Icon Hero = new ImageIcon(getClass().getResource("Hero.jpg"));
+	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
+	private Icon Tank = new ImageIcon(getClass().getResource("Tank.jpg"));
+	private Icon Soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 
 
 	private JButton attackBtn = new JButton("Attack");
-	private JButton moveBtn = new JButton("Move");
+	private JButton tankUpAttBtn = new JButton(arrow);
+	private JButton heroUpAttBtn = new JButton(arrow);
+	private JButton soldierUpAttBtn = new JButton(arrow);
 
 	//-private JButton map = new JButton("Map");
 	private JButton[][] squares = new JButton[8][8];
@@ -32,17 +37,25 @@ public class StageGUI extends JFrame{
 	private int col = 1;
 
 	//Images:
-	private ImageIcon Hero = new ImageIcon("Hero.jpg");
-	private ImageIcon Tank = new ImageIcon("Tank.jpg");
-	private ImageIcon Soldier = new ImageIcon("Soldier.jpg");
+	
+	
 
 
 
+	private JLabel pointsLbl = new JLabel("POINTS");
 
-
-	private JLabel selectLbl = new JLabel("Select Unit");
-	private JLabel chooseLbl = new JLabel("Actions");
-	private JTextArea historyTxtArea = new JTextArea();
+	private JLabel upgradeLbl = new JLabel("Upgrades:");
+	private JLabel attUpLbl = new JLabel("Attack UP");
+	
+	private JLabel tankLbl = new JLabel("Tank: Attack +20 - cost 20pts");
+	private JLabel heroLbl = new JLabel("Hero: Attack +25 - cost 25pts");
+	private JLabel soldierLbl = new JLabel("Soldier: Attack +15 - cost 15ts");
+	
+	
+	
+	private JLabel chooseLbl = new JLabel("XD");
+	private JTextArea pointsTxtArea = new JTextArea("POINTS");
+	private JTextArea statsTxtArea = new JTextArea("STATS");
 
 
 
@@ -53,26 +66,28 @@ public class StageGUI extends JFrame{
 
 	//}
 
-	Hero hero = new Hero(25, 10, 25, 3);
+	
 	Soldier soldier = new Soldier(15, 5, 15, 5);
 	Tank tank = new Tank(35, 7, 35, 1);
-	private Army[] units = {soldier, tank, hero};
-	private JComboBox unit = new JComboBox(units);
+	
+	
 
 	//Map panel
 	private JPanel firstPanel = new JPanel();
 
-	//Move & attack button
-	private JPanel secondPanel1 = new JPanel(new GridLayout(1,2));
+	//points TEXT
+	private JPanel secondPanel1 = new JPanel(new GridLayout(3,2));
 
-	//Unit Jcombo box
-	private JPanel secondPanel2 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+	//UPGRADE PANEL
+	private JPanel secondPanel2 = new JPanel(new GridLayout(3,2));
 
-	//display text box or history
-	private JPanel secondPanel3 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+	//ATTACK BUTTON
+	private JPanel secondPanel3 = new JPanel(new GridLayout(1,1));
 
 
 	private JPanel rightHelperPanel = new JPanel(new GridLayout(3,1));
+	
+	
 
 	
 	ButtonHandler buttonHandler = new ButtonHandler();
@@ -82,9 +97,10 @@ public class StageGUI extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 2));
 		// min width is 600
-		setSize(600, 400);
+		setSize(800, 800);
 
-		setResizable(false);
+		//setResizable(false);
+	
 
 		createFirstPanel();
 		createSecondPanel1();
@@ -94,11 +110,32 @@ public class StageGUI extends JFrame{
 
 		addPanelsToFrame();
 		setVisible(true);
+		pointsTxtArea.setEditable(false);
+		statsTxtArea.setEditable(false);
 	}
 
-	//for squares for map
-		private Container contents;
+	
 
+	//for squares for map
+	private Container contents;
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
 	private void createFirstPanel() {
 
 		for (int i = 0; i < 7; i++)
@@ -118,23 +155,30 @@ public class StageGUI extends JFrame{
 		// this line gives us null pointer exception *down below*????
 		//squares[row][col].setIcon(Hero);
 	}
-	
-	
-
+	//secondPanel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "POINTS"));
 	private void createSecondPanel1() {
-		secondPanel1.add(moveBtn);
-		//secondPanel1.add(chooseLbl, BorderLayout.CENTER);
-		secondPanel1.add(attackBtn);
-
+		secondPanel1.add(statsTxtArea);
+		secondPanel1.add(pointsTxtArea);
+		
+		secondPanel1.add(upgradeLbl);
+		secondPanel1.add(chooseLbl);
+		
+		secondPanel1.add(tankLbl);
+		secondPanel1.add(tankUpAttBtn);
 	}
 
 	private void createSecondPanel2() {
-		secondPanel2.add(selectLbl);
-		secondPanel2.add(unit);
+		
+		
+		secondPanel2.add(heroLbl);
+		secondPanel2.add(heroUpAttBtn);
+		secondPanel2.add(soldierLbl);
+		secondPanel2.add(soldierUpAttBtn);
 	}
+	
 	private void createSecondPanel3() {
-		secondPanel3.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "History"));
-		secondPanel3.add(historyTxtArea);
+		
+		secondPanel3.add(attackBtn);
 	}
 
 	private void createRightHelperPanel() {
@@ -145,7 +189,7 @@ public class StageGUI extends JFrame{
 
 	private void addPanelsToFrame() {
 		add(firstPanel);
-		//add();
+		
 		add(rightHelperPanel);
 
 	}
