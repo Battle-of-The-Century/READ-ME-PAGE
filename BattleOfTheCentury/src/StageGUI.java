@@ -68,12 +68,6 @@ public class StageGUI extends JFrame{
 	
 	Soldier soldier = new Soldier(15, 5, 15, 5);
 	Tank tank = new Tank(35, 7, 35, 1);
-<<<<<<< HEAD
-
-=======
-	
-	
->>>>>>> 4b3718ef956e08fe870863970757950d697dbd9e
 
 	//Map panel
 	private JPanel firstPanel = new JPanel();
@@ -171,17 +165,17 @@ public class StageGUI extends JFrame{
 	}
 
 	private void createSecondPanel2() {
-<<<<<<< HEAD
-		secondPanel2.add(selectLbl);
+
 		
-=======
+		
+
 		
 		
 		secondPanel2.add(heroLbl);
 		secondPanel2.add(heroUpAttBtn);
 		secondPanel2.add(soldierLbl);
 		secondPanel2.add(soldierUpAttBtn);
->>>>>>> 4b3718ef956e08fe870863970757950d697dbd9e
+
 	}
 	
 	private void createSecondPanel3() {
