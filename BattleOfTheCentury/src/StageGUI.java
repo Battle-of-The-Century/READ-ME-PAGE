@@ -25,7 +25,7 @@ public class StageGUI extends JFrame{
 	private JButton soldierUpAttBtn = new JButton(arrow);
 
 	//-private JButton map = new JButton("Map");
-	private JButton[][] squares = new JButton[8][8];
+	private JButton[][] squares = new JButton[4][4];
 
 	//Colors:
 	private Color colorBlack = Color.BLACK;
@@ -70,7 +70,7 @@ public class StageGUI extends JFrame{
 	Tank tank = new Tank(35, 7, 35, 1);
 
 	//Map panel
-	private JPanel firstPanel = new JPanel();
+	private JPanel firstPanel = new JPanel(new GridLayout(3,3));
 
 	//points TEXT
 	private JPanel secondPanel1 = new JPanel(new GridLayout(3,2));
@@ -119,25 +119,12 @@ public class StageGUI extends JFrame{
 	
 	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 		
 	private void createFirstPanel() {
 
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < 3; i++)
 		{
-			for(int j = 0; j < 7; j++)
+			for(int j = 0; j < 3; j++)
 			{
 				squares[i][j] = new JButton();
 				if ((i + j) % 2 != 0)
