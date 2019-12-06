@@ -5,6 +5,8 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -23,6 +25,11 @@ public class StageGUI extends JFrame{
 
 	//Colors:
 	private Color colorBlack = Color.BLACK;
+	
+	//Position
+	// upper left corner of board is (0,0).
+	private int row = 7;
+	private int col = 1;
 
 	//Images:
 	private ImageIcon Hero = new ImageIcon("Hero.jpg");
@@ -67,6 +74,9 @@ public class StageGUI extends JFrame{
 
 	private JPanel rightHelperPanel = new JPanel(new GridLayout(3,1));
 
+	
+	ButtonHandler buttonHandler = new ButtonHandler();
+	
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,10 +111,15 @@ public class StageGUI extends JFrame{
 					squares[i][j].setBackground(colorBlack);
 				}
 				firstPanel.add(squares[i][j]);
-				//squares[i][j].addActionListener(l);
+				squares[i][j].addActionListener(buttonHandler);
 			}
 		}
+		//Its supposed to set the icon I set for the hero
+		// this line gives us null pointer exception *down below*????
+		squares[row][col].setIcon(Hero);
 	}
+	
+	
 
 	private void createSecondPanel1() {
 		secondPanel1.add(moveBtn);
@@ -134,8 +149,67 @@ public class StageGUI extends JFrame{
 		add(rightHelperPanel);
 
 	}
+	
+	
+	private boolean isValidMove (int i, int j) {
+		
+		int rowDelta = Math.abs(i - row);
+		int colDelta = Math.abs(j - col);
+		
+		if ((rowDelta == 1) && (colDelta ==2)) {
+			
+			return true;
+		}
 
+			if ((rowDelta == 1) && (colDelta ==2)) {
+			
+				return true;
+			}
+			return false;
+	}
 
+	
+	
+	private void processClick(int i, int j) {
+		
+		if (isValidMove(i,j) == false)
+		{
+			return;
+			
+		}
+		squares[row][col].setIcon(null);
+		squares[i][j].setIcon(Hero);
+		row = i;
+		col = j;
+		
+	}
+	
+	
+	
+	private class ButtonHandler implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			Object source = e.getSource();
+			
+			for (int i = 0; i < 7; i++)
+			{
+				for(int j = 0; j < 7; j++)
+				{
+					if (source == squares[i][j])
+					{
+						
+						processClick(i,j);
+						return;
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
