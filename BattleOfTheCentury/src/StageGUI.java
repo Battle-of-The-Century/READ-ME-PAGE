@@ -23,6 +23,10 @@ public class StageGUI extends JFrame{
 	private JButton tankUpAttBtn = new JButton(arrow);
 	private JButton heroUpAttBtn = new JButton(arrow);
 	private JButton soldierUpAttBtn = new JButton(arrow);
+	
+	
+	
+	
 
 	//-private JButton map = new JButton("Map");
 	private JButton[][] squares = new JButton[4][4];
@@ -133,6 +137,11 @@ public class StageGUI extends JFrame{
 				}
 				firstPanel.add(squares[i][j]);
 				squares[i][j].addActionListener(buttonHandler);
+				
+				squares[3][1] = new JButton(Soldier);
+				squares[3][2] = new JButton(Hero);
+				squares[3][3] = new JButton(Tank);
+				
 			}
 		}
 		//Its supposed to set the icon I set for the hero
