@@ -77,10 +77,11 @@ public class StageGUI extends JFrame implements ActionListener{
 	private JPanel rightHelperPanel = new JPanel(new GridLayout(3,1));
 	
 	
+//
+	
 
-	
-	
-	
+	//ButtonHandler buttonHandler = new ButtonHandler();
+
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,13 +103,6 @@ public class StageGUI extends JFrame implements ActionListener{
 		pointsTxtArea.setEditable(false);
 		statsTxtArea.setEditable(false);
 	}
-
-	
-
-	//for squares for map
-	private Container contents;
-
-	
 	
 
 		
@@ -119,19 +113,26 @@ public class StageGUI extends JFrame implements ActionListener{
 			for(int j = 0; j < 3; j++)
 			{
 				squares[i][j] = new JButton();
+
 				if ((i + j) % 2 != 0)
 				{
 					squares[i][j].setBackground(colorGray);
 				}
 				firstPanel.add(squares[i][j]);
+
 				//squares[i][j].addActionListener(buttonHandler);
 				
-				squares[3][1] = new JButton(Soldier);
-				squares[3][2] = new JButton(Hero);
-				squares[3][3] = new JButton(Tank);
 				
+				//squares[3][1] = new JButton(Soldier);
+				//squares[3][2] = new JButton(Hero);
+				//squares[3][3] = new JButton(Tank);
+				firstPanel.add(squares[i][j]);
 			}
 		}
+		squares[2][0].setBackground(colorGray);
+		squares[2][1].setBackground(Color.YELLOW);
+		squares[2][2].setBackground(Color.BLUE);
+		
 		//Its supposed to set the icon I set for the hero
 		// this line gives us null pointer exception *down below*????
 		//squares[row][col].setIcon(Hero);
@@ -182,7 +183,6 @@ public class StageGUI extends JFrame implements ActionListener{
 	
 	
 
-	
 	private void setActionListener() {
 		attackBtn.addActionListener(this);
 		tankUpAttBtn.addActionListener(this);
