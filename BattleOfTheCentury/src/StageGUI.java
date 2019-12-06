@@ -13,10 +13,13 @@ import javax.swing.*;
 
 
 public class StageGUI extends JFrame implements ActionListener{
+	
+	
 	private Icon Hero = new ImageIcon(getClass().getResource("Hero.jpg"));
 	private Icon Tank = new ImageIcon(getClass().getResource("Tank.jpg"));
 	private Icon Soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 	
+	//Images:
 	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
 	private Icon arrow2 = new ImageIcon(getClass().getResource("arrow2.png"));
 	private Icon arrow3 = new ImageIcon(getClass().getResource("arrow3.png"));
@@ -39,11 +42,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	// upper left corner of board is (0,0).
 	private int row = 7;
 	private int col = 1;
-
-	//Images:
 	
-	
-
 
 
 	private JLabel pointsLbl = new JLabel("POINTS");
@@ -61,14 +60,6 @@ public class StageGUI extends JFrame implements ActionListener{
 	private JTextArea pointsTxtArea = new JTextArea("POINTS");
 	private JTextArea statsTxtArea = new JTextArea("STATS");
 
-
-
-	//public GridLayoutManager() {
-		//super("GUI GridLayout Manager - (click a valid square to move piece)")
-
-
-
-	//}
 
 	
 
@@ -141,9 +132,10 @@ public class StageGUI extends JFrame implements ActionListener{
 		squares[2][1].setBackground(Color.YELLOW);
 		squares[2][2].setBackground(Color.BLUE);
 		
-		//Its supposed to set the icon I set for the hero
-		// this line gives us null pointer exception *down below*????
-		//squares[row][col].setIcon(Hero);
+		squares[2][0] = new JButton(Soldier);
+		squares[2][1] = new JButton(Hero);
+		squares[2][2] = new JButton(Tank);
+		
 	}
 	//secondPanel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "POINTS"));
 	private void createSecondPanel1() {
