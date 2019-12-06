@@ -14,6 +14,9 @@ import javax.swing.*;
 
 public class StageGUI extends JFrame implements ActionListener{
 	
+	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
+	private Icon Minion = new ImageIcon(getClass().getResource("Minion.jpg"));
+	
 	
 	private Icon hero = new ImageIcon(getClass().getResource("Hero.jpg"));
 	private Icon tank = new ImageIcon(getClass().getResource("Tank.jpg"));
@@ -131,6 +134,10 @@ public class StageGUI extends JFrame implements ActionListener{
 		squares[2][1].setIcon(hero);
 		squares[2][2].setIcon(tank);
 		
+		
+		squares[0][1].setIcon(Boss);
+		squares[0][0].setIcon(Minion);
+		squares[0][2].setIcon(Minion);
 	}
 	//secondPanel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "POINTS"));
 	private void createSecondPanel1() {
