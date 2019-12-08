@@ -195,6 +195,9 @@ public class StageGUI extends JFrame implements ActionListener{
 			squares[1][0].setIcon(soldier);
 			squares[1][1].setIcon(hero);
 			squares[1][2].setIcon(tank);
+			
+			
+			
 			squares[2][0].setIcon(null);
 			if (squares[1][0]!= null) {
 				squares[1][0].setIcon(soldier);
@@ -211,6 +214,10 @@ public class StageGUI extends JFrame implements ActionListener{
 			squares[2][0].setIcon(soldier);
 			squares[2][1].setIcon(hero);
 			squares[2][2].setIcon(tank);
+			
+			squares[1][0].setIcon(Grass);
+			squares[1][1].setIcon(Grass);
+			squares[1][2].setIcon(Grass);
 			
 			
 			
