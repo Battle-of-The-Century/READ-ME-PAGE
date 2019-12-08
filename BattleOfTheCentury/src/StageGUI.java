@@ -164,6 +164,7 @@ public class StageGUI extends JFrame implements ActionListener{
 
 	private void setActionListener() {
 		attackBtn.addActionListener(this);
+		returnBtn.addActionListener(this);
 		tankUpAttBtn.addActionListener(this);
 		heroUpAttBtn.addActionListener(this);
 		soldierUpAttBtn.addActionListener(this);
