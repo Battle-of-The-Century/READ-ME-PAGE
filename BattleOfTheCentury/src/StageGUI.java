@@ -28,6 +28,8 @@ public class StageGUI extends JFrame implements ActionListener{
 	//Buttons:
 	private JButton attackBtn = new JButton("Attack");
 	
+	private JButton returnBtn = new JButton("Return");
+	
 	private JButton tankUpAttBtn = new JButton(arrow);
 	private JButton heroUpAttBtn = new JButton(arrow2);
 	private JButton soldierUpAttBtn = new JButton(arrow3);
@@ -141,6 +143,8 @@ public class StageGUI extends JFrame implements ActionListener{
 	private void createSecondPanel3() {
 		
 		secondPanel3.add(attackBtn);
+		secondPanel3.add(returnBtn);
+		
 	}
 
 	private void createRightHelperPanel() {
@@ -189,6 +193,13 @@ public class StageGUI extends JFrame implements ActionListener{
 			squares[2][2].setIcon(null);
 		
 			//log.append();
+			
+		} else if (callingBtn.equalsIgnoreCase("Return")) {
+			squares[2][0].setIcon(soldier);
+			squares[2][1].setIcon(hero);
+			squares[2][2].setIcon(tank);
+			
+			
 		} else if (callingBtn.equalsIgnoreCase("arrow")) {
 			
 			//log.append();
