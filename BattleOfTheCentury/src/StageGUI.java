@@ -111,9 +111,9 @@ public class StageGUI extends JFrame implements ActionListener{
 		squares[2][1].setBackground(Color.GREEN);
 		squares[2][2].setBackground(Color.GREEN);
 		
-		squares[0][0].setBackground(Color.GREEN);
-		squares[0][1].setBackground(Color.GREEN);
-		squares[0][2].setBackground(Color.GREEN);
+		squares[0][0].setBackground(Color.LIGHT_GRAY);
+		squares[0][1].setBackground(Color.LIGHT_GRAY);
+		squares[0][2].setBackground(Color.LIGHT_GRAY);
 		
 		squares[1][0].setBackground(Color.GREEN);
 		squares[1][1].setBackground(Color.GREEN);
