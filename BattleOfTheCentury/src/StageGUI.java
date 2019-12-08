@@ -4,16 +4,22 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
 
 
 
-public class StageGUI extends JFrame implements ActionListener{
+public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
 	private Icon Minion = new ImageIcon(getClass().getResource("Minion.png"));
+	
+	private Icon explosion = new ImageIcon(getClass().getResource("explosion.png"));
+	private Icon slash = new ImageIcon(getClass().getResource("slash.png"));
+	private Icon bullet = new ImageIcon(getClass().getResource("bullet.png"));
 	
 	private Icon Grass = new ImageIcon(getClass().getResource("Grass.png"));
 	
@@ -99,10 +105,8 @@ public class StageGUI extends JFrame implements ActionListener{
 		
 	private void createFirstPanel() {
 
-		for (int i = 0; i < 3; i++)
-		{
-			for(int j = 0; j < 3; j++)
-			{
+		for (int i = 0; i < 3; i++) {
+			for(int j = 0; j < 3; j++) {
 				squares[i][j] = new JButton();
 				firstPanel.add(squares[i][j]);
 			}
@@ -175,63 +179,119 @@ public class StageGUI extends JFrame implements ActionListener{
 	
 
 	private void setActionListener() {
-		attackBtn.addActionListener(this);
+		attackBtn.addMouseListener(this);
 		returnBtn.addActionListener(this);
 		tankUpAttBtn.addActionListener(this);
 		heroUpAttBtn.addActionListener(this);
 		soldierUpAttBtn.addActionListener(this);
 		
 	}
-
-	
 	
 
 	
+	/**
+	 *
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String callingBtn = e.getActionCommand();
 		
-		if (callingBtn.equalsIgnoreCase("Attack")) {
-			squares[1][0].setIcon(soldier);
-			squares[1][1].setIcon(hero);
-			squares[1][2].setIcon(tank);
+		//if (callingBtn.equalsIgnoreCase("Attack")) {
+		/*
+		 * squares[1][0].setIcon(soldier); squares[1][1].setIcon(hero);
+		 * squares[1][2].setIcon(tank);
+		 * 
+		 * 
+		 * 
+		 * squares[2][0].setIcon(null); if (squares[1][0]!= null) {
+		 * squares[1][0].setIcon(soldier); } if (squares[2][0] == null) {
+		 * squares[2][0].setIcon(soldier); } squares[2][1].setIcon(null);
+		 * squares[2][2].setIcon(null);
+		 * 
+		 * //log.append();
+		 * 
+		 * if (callingBtn.equalsIgnoreCase("Return")) { squares[2][0].setIcon(soldier);
+		 * squares[2][1].setIcon(hero); squares[2][2].setIcon(tank);
+		 * 
+		 * squares[1][0].setIcon(Grass); squares[1][1].setIcon(Grass);
+		 * squares[1][2].setIcon(Grass);
+		 */
 			
 			
 			
-			squares[2][0].setIcon(null);
-			if (squares[1][0]!= null) {
-				squares[1][0].setIcon(soldier);
-			} 
-			if (squares[2][0] == null) {
-				squares[2][0].setIcon(soldier);
-			}
-			squares[2][1].setIcon(null);
-			squares[2][2].setIcon(null);
-		
-			//log.append();
-			
-		} else if (callingBtn.equalsIgnoreCase("Return")) {
-			squares[2][0].setIcon(soldier);
-			squares[2][1].setIcon(hero);
-			squares[2][2].setIcon(tank);
-			
-			squares[1][0].setIcon(Grass);
-			squares[1][1].setIcon(Grass);
-			squares[1][2].setIcon(Grass);
-			
-			
-			
-		} else if (callingBtn.equalsIgnoreCase("arrow")) {
+		//} else if (callingBtn.equalsIgnoreCase("arrow")) {
 			
 			//log.append();
-		} else if (callingBtn.equalsIgnoreCase("arrow2")) {
+		//} else if (callingBtn.equalsIgnoreCase("arrow2")) {
 			
 			//log.append();
-		} else if (callingBtn.equalsIgnoreCase("arrow3")) {
+		//} else if (callingBtn.equalsIgnoreCase("arrow3")) {
 			
 			//log.append();
-		}
+		//}
 		
 	}
 
+
+
+
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+	
+		
+	}
+
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+		
+		squares[1][0].setIcon(bullet);
+		squares[1][1].setIcon(slash);
+		squares[1][2].setIcon(explosion);
+		
+		squares[0][0].setBackground(Color.RED);
+		squares[0][1].setBackground(Color.RED);
+		squares[0][2].setBackground(Color.RED);
+		
+		
+	
+	}
+
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		squares[1][0].setIcon(null);
+		squares[1][1].setIcon(null);
+		squares[1][2].setIcon(null);
+		
+		squares[0][0].setBackground(Color.LIGHT_GRAY);
+		squares[0][1].setBackground(Color.LIGHT_GRAY);
+		squares[0][2].setBackground(Color.LIGHT_GRAY);
+	}
+
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }
+
