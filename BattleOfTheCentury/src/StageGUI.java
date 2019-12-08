@@ -15,6 +15,7 @@ public class StageGUI extends JFrame implements ActionListener{
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
 	private Icon Minion = new ImageIcon(getClass().getResource("Minion.png"));
 	
+	private Icon Grass = new ImageIcon(getClass().getResource("Grass.png"));
 	
 	private Icon hero = new ImageIcon(getClass().getResource("Hero.png"));
 	private Icon tank = new ImageIcon(getClass().getResource("Tank.png"));
@@ -106,14 +107,25 @@ public class StageGUI extends JFrame implements ActionListener{
 				firstPanel.add(squares[i][j]);
 			}
 		}
-		squares[2][0].setBackground(Color.RED);
-		squares[2][1].setBackground(Color.YELLOW);
-		squares[2][2].setBackground(Color.ORANGE);
+		squares[2][0].setBackground(Color.GREEN);
+		squares[2][1].setBackground(Color.GREEN);
+		squares[2][2].setBackground(Color.GREEN);
+		
+		squares[0][0].setBackground(Color.GREEN);
+		squares[0][1].setBackground(Color.GREEN);
+		squares[0][2].setBackground(Color.GREEN);
+		
+		squares[1][0].setBackground(Color.GREEN);
+		squares[1][1].setBackground(Color.GREEN);
+		squares[1][2].setBackground(Color.GREEN);
 		
 		squares[2][0].setIcon(soldier);
 		squares[2][1].setIcon(hero);
 		squares[2][2].setIcon(tank);
 		
+		squares[1][0].setIcon(Grass);
+		squares[1][1].setIcon(Grass);
+		squares[1][2].setIcon(Grass);
 		
 		squares[0][1].setIcon(Boss);
 		squares[0][0].setIcon(Minion);
@@ -199,6 +211,7 @@ public class StageGUI extends JFrame implements ActionListener{
 			squares[2][0].setIcon(soldier);
 			squares[2][1].setIcon(hero);
 			squares[2][2].setIcon(tank);
+			
 			
 			
 		} else if (callingBtn.equalsIgnoreCase("arrow")) {
