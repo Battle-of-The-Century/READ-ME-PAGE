@@ -21,6 +21,8 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private static int bossHp;
 	private static int min1Hp;
 	private static int min2Hp;
+
+	
 	// Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
 	private Icon deadBoss = new ImageIcon(getClass().getResource("dragonBones.png"));
