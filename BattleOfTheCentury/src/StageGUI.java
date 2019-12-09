@@ -15,7 +15,7 @@ import javax.swing.*;
 public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	private static int points;
-	
+	private static int cap = 3;
 	
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
@@ -221,6 +221,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	static Unit Minion2 = new Unit("Minion2");
 	
 	
+	public void ArrayList(boss, Minion1, Minion2) {
+		
+	}
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
