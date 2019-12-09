@@ -113,7 +113,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		squares[0][0].setIcon(Minion);
 		squares[0][2].setIcon(Minion);
 	}
-	//secondPanel1.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "POINTS"));
+	
 	private void createSecondPanel1() {
 		secondPanel1.add(statsTxtArea);
 		secondPanel1.add(pointsTxtArea);
