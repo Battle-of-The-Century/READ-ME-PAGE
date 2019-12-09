@@ -216,6 +216,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	static Unit player = new Unit("PLAYER");
 	
+	static Unit boss = new Unit("Boss");
+	static Unit Minion1 = new Unit("Minion1");
+	static Unit Minion2 = new Unit("Minion2");
 	
 	
 
