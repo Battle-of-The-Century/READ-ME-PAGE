@@ -15,7 +15,7 @@ import javax.swing.*;
 public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	private static int points;
-	private static int total;
+	
 	
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
@@ -29,7 +29,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private Icon tank = new ImageIcon(getClass().getResource("Tank.png"));
 	private Icon soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 	
-	private Icon arrow2 = new ImageIcon(getClass().getResource("arrow2.png"));
+	
 	
 	//Buttons:
 	private JButton attackBtn = new JButton("Attack");
@@ -215,6 +215,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	}
 
 	static Unit player = new Unit("PLAYER");
+	
+	
+	
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
