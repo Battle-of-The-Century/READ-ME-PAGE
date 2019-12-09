@@ -182,7 +182,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
 			{
 			add(minion1);
-			minion1 -= Unit.getAttack();
+			//minion1 -= Unit.getAttack();
 			add(boss);
 			
 			add(minion2);
