@@ -250,17 +250,22 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	//((int) (Math.random()*(maximum - minimum))) + minimum;
 	
+	int[] MonsterUnits = new int[3]; {
+			
+			for(int i=0; i<MonsterUnits.length; i++) {
+				
+			}
+	}
+				//MonsterUnits[0] = (Math.random()*(10000 - 500)))+ 500); //Minion
+				//MonsterUnits[1] = (Math.random()*(100000 - 10000))) + 10000); // boss
+				//MonsterUnits[2] = (Math.random()*(10000 - 500)))+ 500);
+				
 	static MonsterUnits boss = new MonsterUnits(((int) (Math.random()*(100000 - 10000))) + 10000);
 	static MonsterUnits minion1 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
 	static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
 	
 	
-	int[] MonsterUnits = new int[3] {
-		
-			MonsterUnits[0] = (Math.random()*(10000 - 500)))+ 500); //Minion
-			MonsterUnits[1] = (Math.random()*(100000 - 10000))) + 10000); // boss
-			MonsterUnits[2] = (Math.random()*(10000 - 500)))+ 500);
-	}
+			
 	
 	//static ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
 	//	{
@@ -277,10 +282,10 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
-		
-		for (MonsterUnits monsterUnitList : monsterUnitList) {
-			System.out.println(monsterUnitList);
-		}
+		//System.out.println(MonsterUnitss[i]);
+		//for (MonsterUnits monsterUnitList : monsterUnitList) {
+		//	System.out.println(MonsterUnits);
+		//}
 	
 	
 	
