@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -223,12 +224,17 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	static Unit Minion1 = new Unit("Minion1");
 	static Unit Minion2 = new Unit("Minion2");
 	
-	
-	//public void ArrayList(boss, Minion1, Minion2) {
-		
-	//}
+
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
+		
+	
+		
+		ArrayList unitList = new ArrayList();
+		unitList.add(Minion1);
+		unitList.add(boss);
+		unitList.add(Minion2);
+		
 	}
 }
