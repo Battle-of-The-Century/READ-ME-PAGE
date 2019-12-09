@@ -19,7 +19,10 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
+	private Icon deadBoss = new ImageIcon(getClass().getResource("dragonBones.png"));
+	
 	private Icon Minion = new ImageIcon(getClass().getResource("Minion.png"));
+	private Icon deadMinion = new ImageIcon(getClass().getResource("deadSlime.png"));
 	
 	private Icon explosion = new ImageIcon(getClass().getResource("explosion.png"));
 	private Icon slash = new ImageIcon(getClass().getResource("slash.png"));
@@ -221,9 +224,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	static Unit Minion2 = new Unit("Minion2");
 	
 	
-	public void ArrayList(boss, Minion1, Minion2) {
+	//public void ArrayList(boss, Minion1, Minion2) {
 		
-	}
+	//}
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
