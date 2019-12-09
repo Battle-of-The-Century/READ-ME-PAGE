@@ -225,6 +225,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	
 	//boss random number between 10,000 and 100,000
+	
+	//((int) (Math.random()*(maximum - minimum))) + minimum;
+	
 	static MonsterUnits boss = new MonsterUnits(((int) (Math.random()*(100000 - 10000))) + 10000);
 	static MonsterUnits minion1 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
 	static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
