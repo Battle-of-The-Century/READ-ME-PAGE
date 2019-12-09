@@ -19,8 +19,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	private static int points;
 	
-	private static int healthpoints;
-	
+	private static int bossHp;
+	private static int min1Hp;
+	private static int min2Hp;
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
 	private Icon deadBoss = new ImageIcon(getClass().getResource("dragonBones.png"));
@@ -178,18 +179,11 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 
 	public void damageReceived(){
-		 healthpoints -= Unit.getAttack();
-		 healthpoints = monsterUnitList(minion1, boss, minion2);
-		 
+		min1Hp = minion1.getHealthPoints() - Unit.getAttack();
+		min2Hp = minion2.getHealthPoints() - Unit.getAttack();
+		bossHp = boss.getHealthPoints() - Unit.getAttack(); 
 		}
 	
-	
-
-	private int monsterUnitList(MonsterUnits minion12, MonsterUnits boss2, MonsterUnits minion22) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public static int addPoints() {
 		points += Unit.getAttack();
 		
