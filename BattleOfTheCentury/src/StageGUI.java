@@ -182,7 +182,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
 			{
 			add(minion1);
-			minion1 += Unit.getAttack();
+			minion1 -= Unit.getAttack();
 			add(boss);
 			
 			add(minion2);
@@ -253,6 +253,13 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	static MonsterUnits boss = new MonsterUnits(((int) (Math.random()*(100000 - 10000))) + 10000);
 	static MonsterUnits minion1 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
 	static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
+	
+	
+	int[] MonsterUnits = new int[3];
+		
+	MonsterUnits[0] = (Math.random()*(10000 - 500)))+ 500); //Minion
+	MonsterUnits[1] = (Math.random()*(100000 - 10000))) + 10000); // boss
+	MonsterUnits[2] = (Math.random()*(10000 - 500)))+ 500);
 	
 	
 	static ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
