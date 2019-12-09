@@ -220,21 +220,21 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	static Unit player = new Unit("PLAYER");
 	
-	static Unit boss = new Unit("Boss");
-	static Unit Minion1 = new Unit("Minion1");
-	static Unit Minion2 = new Unit("Minion2");
+	//boss random number between 10,000 and 100,000
+	static MonsterUnits boss = new MonsterUnits(100000);
+	static MonsterUnits Minion1 = new MonsterUnits(500);
+	static MonsterUnits Minion2 = new MonsterUnits(500);
 	
-
+	ArrayList MonsterUnitsList = new ArrayList();
+	MonsterUnitsList.add(Minion1);
+	MonsterUnitsList.add(boss);
+	MonsterUnitsList.add(Minion2);
+	
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
 		
 	
-		
-		ArrayList unitList = new ArrayList();
-		unitList.add(Minion1);
-		unitList.add(boss);
-		unitList.add(Minion2);
-		
+	
 	}
 }
