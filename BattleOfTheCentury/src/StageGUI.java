@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import java.util.Collection;
+import java.util.Collections;
 
 
 public class StageGUI extends JFrame implements ActionListener, MouseListener {
@@ -220,15 +222,24 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	static Unit player = new Unit("PLAYER");
 	
-	//boss random number between 10,000 and 100,000
-	static MonsterUnits boss = new MonsterUnits(100000);
-	static MonsterUnits Minion1 = new MonsterUnits(500);
-	static MonsterUnits Minion2 = new MonsterUnits(500);
 	
-	ArrayList MonsterUnitsList = new ArrayList();
-	MonsterUnitsList.add(Minion1);
-	MonsterUnitsList.add(boss);
-	MonsterUnitsList.add(Minion2);
+	
+	//boss random number between 10,000 and 100,000
+	static MonsterUnits boss = new MonsterUnits(((int) (Math.random()*(100000 - 10000))) + 10000);
+	static MonsterUnits minion1 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
+	static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
+	
+	
+	ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {{
+		add(minion1);
+		add(minion2);
+		add(boss);
+	}};
+	
+	
+	
+	
+	
 	
 
 	public static void main(String[] args) {
