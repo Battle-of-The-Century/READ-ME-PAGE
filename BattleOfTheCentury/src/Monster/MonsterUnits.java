@@ -24,4 +24,11 @@ public class MonsterUnits  {
 	public void setHealthPoints(int healthPoints) {
 		this.healthPoints = healthPoints;
 	}
+	
+	@Override
+	public String toString() {
+		String info = "Monster " + getHealthPoints();
+		
+		return info;
+	}
 }

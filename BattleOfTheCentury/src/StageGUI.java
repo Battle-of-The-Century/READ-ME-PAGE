@@ -233,7 +233,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
 	
 	
-	ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {{
+	static ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {{
 		add(minion1);
 		add(minion2);
 		add(boss);
@@ -248,6 +248,10 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
 		
+		for (MonsterUnits monsterUnitList : monsterUnitList) {
+			System.out.println(monsterUnitList);
+		}
+	
 	
 	
 	}
