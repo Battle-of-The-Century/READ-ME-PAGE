@@ -2,7 +2,7 @@ package Monster;
 
 public class MonsterBoss extends MonsterUnits{
 	private String name = "Boss";
-	private int bossHealth;
+
 	
 	public MonsterBoss(int healthPoints) {
 		super(healthPoints);
@@ -16,13 +16,6 @@ public class MonsterBoss extends MonsterUnits{
 							  
 		return Boss;
 	}
-
-	public int getBossHealth() {
-		return bossHealth;
-	}
-
-	public void setBossHealth(int bossHealth) {
-		this.bossHealth = bossHealth;
-	}
-
 }
+
+	

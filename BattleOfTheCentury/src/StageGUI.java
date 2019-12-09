@@ -18,7 +18,8 @@ import java.util.Collections;
 public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	
 	private static int points;
-	private static int cap = 3;
+	
+	private static int healthpoints;
 	
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
@@ -175,6 +176,20 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		
 	}
 	
+
+	public void damageReceived(){
+		 healthpoints -= Unit.getAttack();
+		 healthpoints = monsterUnitList(minion1, boss, minion2);
+		 
+		}
+	
+	
+
+	private int monsterUnitList(MonsterUnits minion12, MonsterUnits boss2, MonsterUnits minion22) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public static int addPoints() {
 		points += Unit.getAttack();
 		
@@ -185,6 +200,10 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		points -= 25;
 		return points;
 	}
+	
+	
+		
+	
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -222,8 +241,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	static Unit player = new Unit("PLAYER");
 	
-	
-	
+
 	//boss random number between 10,000 and 100,000
 	
 	//((int) (Math.random()*(maximum - minimum))) + minimum;
@@ -233,14 +251,15 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
 	
 	
-	static ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {{
+	static ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
+		{
 		add(minion1);
-		add(minion2);
+		
 		add(boss);
-	}};
-	
-	
-	
+		
+		add(minion2);
+		}
+	};
 	
 	
 	
