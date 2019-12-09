@@ -14,7 +14,6 @@ import javax.swing.*;
 import java.util.Collection;
 import java.util.Collections;
 
-
 public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	private static int points;
@@ -22,7 +21,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private static int bossHp;
 	private static int min1Hp;
 	private static int min2Hp;
-	//Images:
+	// Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
 	private Icon deadBoss = new ImageIcon(getClass().getResource("dragonBones.png"));
 
@@ -37,36 +36,33 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private Icon tank = new ImageIcon(getClass().getResource("Tank.png"));
 	private Icon soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 
-
-
-	//Buttons:
+	// Buttons:
 	private JButton attackBtn = new JButton("Attack");
 	private JButton heroUpAttBtn = new JButton("Increase Attack");
 
-	//-private JButton map = new JButton("Map");
+	// -private JButton map = new JButton("Map");
 	private JButton[][] squares = new JButton[4][4];
 
-	//Labels:
+	// Labels:
 	private JLabel heroLbl = new JLabel("HEROES: Attack +25 - cost 25pts");
 
-	//TextBox
+	// TextBox
 	private JTextArea pointsTxtArea = new JTextArea("POINTS: 0");
 	private JTextArea statsTxtArea = new JTextArea("INFO:");
 
+	// Map panel
+	private JPanel firstPanel = new JPanel(new GridLayout(3, 3));
 
-	//Map panel
-	private JPanel firstPanel = new JPanel(new GridLayout(3,3));
-
-	//points TEXT
+	// points TEXT
 	private JPanel secondPanel1 = new JPanel();
 
-	//UPGRADE PANEL
+	// UPGRADE PANEL
 	private JPanel secondPanel2 = new JPanel(new FlowLayout());
 
-	//ATTACK PANEL
-	private JPanel secondPanel3 = new JPanel(new GridLayout(1,1));
+	// ATTACK PANEL
+	private JPanel secondPanel3 = new JPanel(new GridLayout(1, 1));
 
-	private JPanel rightHelperPanel = new JPanel(new GridLayout(3,1));
+	private JPanel rightHelperPanel = new JPanel(new GridLayout(3, 1));
 
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
@@ -77,7 +73,6 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		setSize(800, 800);
 
 		setResizable(false);
-
 
 		createFirstPanel();
 		createSecondPanel1();
@@ -96,7 +91,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private void createFirstPanel() {
 
 		for (int i = 0; i < 3; i++) {
-			for(int j = 0; j < 3; j++) {
+			for (int j = 0; j < 3; j++) {
 				squares[i][j] = new JButton();
 				firstPanel.add(squares[i][j]);
 			}
@@ -157,19 +152,18 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	public void actionPerformed(ActionEvent event) {
 		String callingBtn = event.getActionCommand();
 
-		  if (callingBtn.equals("Attack")) {
+		if (callingBtn.equals("Attack")) {
 			pointsTxtArea.setText("POINTS: " + addPoints());
-			}
-		  else if (callingBtn.equals("Increase Attack")) {
-				if (points != 0) {
+		} else if (callingBtn.equals("Increase Attack")) {
+			if (points != 0) {
 				player.addAttack();
 
 				statsTxtArea.setText("Player + 25\n" + player.toString() + "\n");
 				pointsTxtArea.setText("POINTS: " + subtractPoints());
-				} else if (points <= 0) {
-					pointsTxtArea.setText("NOT ENOUGH POINTS");
-				}
+			} else if (points <= 0) {
+				pointsTxtArea.setText("NOT ENOUGH POINTS");
 			}
+		}
 	}
 
 	@Override
@@ -177,21 +171,17 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	}
 
+	public static int damageReceived() {
+		// Minion 1
+		MonsterUnits[0] -= Unit.getAttack();
+		// boss
+		MonsterUnits[1] -= Unit.getAttack();
+		// Minion 2
+		MonsterUnits[2] -= Unit.getAttack();
 
-	public static int damageReceived(){
-			//Minion 1
-			MonsterUnits [0] -= Unit.getAttack();
-			//boss
-			MonsterUnits [1] -= Unit.getAttack();
-			//Minion 2
-			MonsterUnits [2] -= Unit.getAttack();
+		return 0;
 
-			return 0;
-			
-		}
-
-
-
+	}
 
 	public static int addPoints() {
 		points += Unit.getAttack();
@@ -203,10 +193,6 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		points -= 25;
 		return points;
 	}
-
-
-
-
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -244,52 +230,47 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	static Unit player = new Unit("PLAYER");
 
+	// boss random number between 10,000 and 100,000
 
-	//boss random number between 10,000 and 100,000
+	// ((int) (Math.random()*(maximum - minimum))) + minimum;
 
-	//((int) (Math.random()*(maximum - minimum))) + minimum;
+	static int[] MonsterUnits = new int[3];
+	{
 
-	static int[] MonsterUnits = new int[3]; {
-
-			for(int i=0; i < MonsterUnits.length; i++) {
-				//boss
-				MonsterUnits[1] =(((int) (Math.random()*(100000 - 10000))) + 10000);
-				//minion1
-				MonsterUnits[0] =(((int) (Math.random()*(10000 - 500)))+ 500);
-				//minion2
-				MonsterUnits[2] =(((int) (Math.random()*(10000 - 500)))+ 500);
-			}
+		for (int i = 0; i < MonsterUnits.length; i++) {
+			// boss
+			MonsterUnits[1] = (((int) (Math.random() * (100000 - 10000))) + 10000);
+			// minion1
+			MonsterUnits[0] = (((int) (Math.random() * (10000 - 500))) + 500);
+			// minion2
+			MonsterUnits[2] = (((int) (Math.random() * (10000 - 500))) + 500);
+		}
 	}
 
+	// static MonsterUnits boss = new MonsterUnits(((int) (Math.random()*(100000 -
+	// 10000))) + 10000);
+	// static MonsterUnits minion1 = new MonsterUnits(((int) (Math.random()*(10000 -
+	// 500)))+ 500);
+	// static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 -
+	// 500)))+ 500);
 
-	//static MonsterUnits boss = new MonsterUnits(((int) (Math.random()*(100000 - 10000))) + 10000);
-	//static MonsterUnits minion1 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
-	//static MonsterUnits minion2 = new MonsterUnits(((int) (Math.random()*(10000 - 500)))+ 500);
+	// static ArrayList<MonsterUnits> monsterUnitList = new
+	// ArrayList<MonsterUnits>() {
+	// {
+	// add(minion1);
 
+	// add(boss);
 
-
-
-	//static ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
-	//	{
-	//	add(minion1);
-
-	//	add(boss);
-
-	//	add(minion2);
-	//	}
-	//};
-
-
-
+	// add(minion2);
+	// }
+	// };
 
 	public static void main(String[] args) {
 		StageGUI game = new StageGUI("ok");
 		System.out.println(MonsterUnits[1]);
-		//for (MonsterUnits monsterUnitList : monsterUnitList) {
-		//	System.out.println(MonsterUnits);
-		//}
-
-
+		// for (MonsterUnits monsterUnitList : monsterUnitList) {
+		// System.out.println(MonsterUnits);
+		// }
 
 	}
 }
