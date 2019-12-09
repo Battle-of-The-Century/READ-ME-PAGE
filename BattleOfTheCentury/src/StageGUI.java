@@ -1,6 +1,7 @@
 import Monster.*;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,8 +12,11 @@ import javax.swing.*;
 
 
 
-
 public class StageGUI extends JFrame implements ActionListener, MouseListener {
+	
+	private static int points;
+	private static int total;
+	
 	//Images:
 	private Icon Boss = new ImageIcon(getClass().getResource("Boss.png"));
 	private Icon Minion = new ImageIcon(getClass().getResource("Minion.png"));
@@ -21,67 +25,47 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private Icon slash = new ImageIcon(getClass().getResource("slash.png"));
 	private Icon bullet = new ImageIcon(getClass().getResource("bullet.png"));
 	
-	private Icon Grass = new ImageIcon(getClass().getResource("Grass.png"));
-	
 	private Icon hero = new ImageIcon(getClass().getResource("Hero.png"));
 	private Icon tank = new ImageIcon(getClass().getResource("Tank.png"));
 	private Icon soldier = new ImageIcon(getClass().getResource("Soldier.jpg"));
 	
-	
-	private Icon arrow = new ImageIcon(getClass().getResource("arrow.png"));
 	private Icon arrow2 = new ImageIcon(getClass().getResource("arrow2.png"));
-	private Icon arrow3 = new ImageIcon(getClass().getResource("arrow3.png"));
-
+	
 	//Buttons:
 	private JButton attackBtn = new JButton("Attack");
-	
-	private JButton returnBtn = new JButton("Return");
-	
-	private JButton tankUpAttBtn = new JButton(arrow);
-	private JButton heroUpAttBtn = new JButton(arrow2);
-	private JButton soldierUpAttBtn = new JButton(arrow3);
-
+	private JButton heroUpAttBtn = new JButton("Increase Attack");
 
 	//-private JButton map = new JButton("Map");
 	private JButton[][] squares = new JButton[4][4];
 	
 	//Labels:
-	private JLabel upgradeLbl = new JLabel("Upgrades:");
-	private JLabel tankLbl = new JLabel("Tank: Attack +20 - cost 20pts");
-	private JLabel heroLbl = new JLabel("Hero: Attack +25 - cost 25pts");
-	private JLabel soldierLbl = new JLabel("Soldier: Attack +15 - cost 15ts");
+	private JLabel heroLbl = new JLabel("HEROES: Attack +25 - cost 25pts");
 	
-	private JLabel chooseLbl = new JLabel("XD");
-	private JTextArea pointsTxtArea = new JTextArea("POINTS");
-	private JTextArea statsTxtArea = new JTextArea("STATS");
+	//TextBox
+	private JTextArea pointsTxtArea = new JTextArea("POINTS: 0");
+	private JTextArea statsTxtArea = new JTextArea("INFO:");
 
 
 	//Map panel
 	private JPanel firstPanel = new JPanel(new GridLayout(3,3));
 
 	//points TEXT
-	private JPanel secondPanel1 = new JPanel(new GridLayout(3,2));
+	private JPanel secondPanel1 = new JPanel();
 
 	//UPGRADE PANEL
-	private JPanel secondPanel2 = new JPanel(new GridLayout(3,2));
-
-	//ATTACK BUTTON
+	private JPanel secondPanel2 = new JPanel(new FlowLayout());
+	
+	//ATTACK PANEL
 	private JPanel secondPanel3 = new JPanel(new GridLayout(1,1));
-
 
 	private JPanel rightHelperPanel = new JPanel(new GridLayout(3,1));
 	
-	
-//
-	
-
-	//ButtonHandler buttonHandler = new ButtonHandler();
-
 	public StageGUI(String title) {
 		super(title = "Battle of The Century");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new GridLayout(1, 2));
-		// min width is 600
+		
+		// minimum width is 600
 		setSize(800, 800);
 
 		setResizable(false);
@@ -101,8 +85,6 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		statsTxtArea.setEditable(false);
 	}
 	
-
-		
 	private void createFirstPanel() {
 
 		for (int i = 0; i < 3; i++) {
@@ -126,11 +108,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		squares[2][0].setIcon(soldier);
 		squares[2][1].setIcon(hero);
 		squares[2][2].setIcon(tank);
-		
-		squares[1][0].setIcon(Grass);
-		squares[1][1].setIcon(Grass);
-		squares[1][2].setIcon(Grass);
-		
+
 		squares[0][1].setIcon(Boss);
 		squares[0][0].setIcon(Minion);
 		squares[0][2].setIcon(Minion);
@@ -139,28 +117,15 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	private void createSecondPanel1() {
 		secondPanel1.add(statsTxtArea);
 		secondPanel1.add(pointsTxtArea);
-		
-		secondPanel1.add(upgradeLbl);
-		secondPanel1.add(chooseLbl);
-		
-		secondPanel1.add(tankLbl);
-		secondPanel1.add(tankUpAttBtn);
 	}
 
 	private void createSecondPanel2() {
-		
 		secondPanel2.add(heroLbl);
 		secondPanel2.add(heroUpAttBtn);
-		secondPanel2.add(soldierLbl);
-		secondPanel2.add(soldierUpAttBtn);
-
 	}
 	
 	private void createSecondPanel3() {
-		
 		secondPanel3.add(attackBtn);
-		secondPanel3.add(returnBtn);
-		
 	}
 
 	private void createRightHelperPanel() {
@@ -171,84 +136,52 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 
 	private void addPanelsToFrame() {
 		add(firstPanel);
-		
 		add(rightHelperPanel);
-
 	}
 	
-	
-
 	private void setActionListener() {
 		attackBtn.addMouseListener(this);
-		returnBtn.addActionListener(this);
-		tankUpAttBtn.addActionListener(this);
+		attackBtn.addActionListener(this);
 		heroUpAttBtn.addActionListener(this);
-		soldierUpAttBtn.addActionListener(this);
-		
 	}
 	
-
-	
-	/**
-	 *
-	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		String callingBtn = e.getActionCommand();
+	public void actionPerformed(ActionEvent event) {
+		String callingBtn = event.getActionCommand();
 		
-		//if (callingBtn.equalsIgnoreCase("Attack")) {
-		/*
-		 * squares[1][0].setIcon(soldier); squares[1][1].setIcon(hero);
-		 * squares[1][2].setIcon(tank);
-		 * 
-		 * 
-		 * 
-		 * squares[2][0].setIcon(null); if (squares[1][0]!= null) {
-		 * squares[1][0].setIcon(soldier); } if (squares[2][0] == null) {
-		 * squares[2][0].setIcon(soldier); } squares[2][1].setIcon(null);
-		 * squares[2][2].setIcon(null);
-		 * 
-		 * //log.append();
-		 * 
-		 * if (callingBtn.equalsIgnoreCase("Return")) { squares[2][0].setIcon(soldier);
-		 * squares[2][1].setIcon(hero); squares[2][2].setIcon(tank);
-		 * 
-		 * squares[1][0].setIcon(Grass); squares[1][1].setIcon(Grass);
-		 * squares[1][2].setIcon(Grass);
-		 */
+		  if (callingBtn.equals("Attack")) { 
+			pointsTxtArea.setText("POINTS: " + addPoints());
+			} 
+		  else if (callingBtn.equals("Increase Attack")) {
+				if (points != 0) {
+				player.addAttack();
 			
-			
-			
-		//} else if (callingBtn.equalsIgnoreCase("arrow")) {
-			
-			//log.append();
-		//} else if (callingBtn.equalsIgnoreCase("arrow2")) {
-			
-			//log.append();
-		//} else if (callingBtn.equalsIgnoreCase("arrow3")) {
-			
-			//log.append();
-		//}
-		
+				statsTxtArea.setText("Player + 25\n" + player.toString() + "\n");
+				pointsTxtArea.setText("POINTS: " + subtractPoints());
+				} else if (points <= 0) {
+					pointsTxtArea.setText("NOT ENOUGH POINTS");
+				}
+			}
 	}
-
-
-
-
-
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
-	
-		
 	}
-
-
+	
+	public static int addPoints() {
+		points += Unit.getAttack();
+		
+		return points;
+	}
+	
+	public static int subtractPoints() {
+		points -= 25;
+		return points;
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-
 		
 		squares[1][0].setIcon(bullet);
 		squares[1][1].setIcon(slash);
@@ -258,11 +191,7 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		squares[0][1].setBackground(Color.RED);
 		squares[0][2].setBackground(Color.RED);
 		
-		
-	
 	}
-
-
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
@@ -275,23 +204,19 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		squares[0][2].setBackground(Color.LIGHT_GRAY);
 	}
 
-
-
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+			
 	}
 
+	static Unit player = new Unit("PLAYER");
 
-
+	public static void main(String[] args) {
+		StageGUI game = new StageGUI("ok");
+	}
 }
-

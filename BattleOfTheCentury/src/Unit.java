@@ -1,13 +1,11 @@
 import Monster.*;
 public class Unit  {
 	private String name;
-	private int attackPoints;
+	private static int attackPoints = 25;
 
 	
-	public Unit(String name, int attackPoints) {
+	public Unit(String name) {
 		this.name = name;
-		this.attackPoints = attackPoints;
-		
 	}
 
 	/**
@@ -25,25 +23,23 @@ public class Unit  {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	/**
-	 * @return the attackPoints
-	 */
-	public int getAttackPoints() {
+	public static int getAttack() {
+		
 		return attackPoints;
 	}
-
-	/**
-	 * @param attackPoints the attackPoints to set
-	 */
-	public void setAttackPoints(int attackPoints) {
-		this.attackPoints = attackPoints;
+	
+	public void addAttack() {
+		attackPoints += 25;
+		
 	}
+	
+	
+
 	
 	
 	@Override
 	public String toString() {
-		String info = getName() + " Attack Points: " + getAttackPoints();
+		String info = getName() + " Attack Points: " + getAttack();
 		return info;
 	}
 }
