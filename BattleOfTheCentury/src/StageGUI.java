@@ -101,9 +101,9 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 		squares[0][1].setBackground(Color.LIGHT_GRAY);
 		squares[0][2].setBackground(Color.LIGHT_GRAY);
 		
-		squares[1][0].setBackground(Color.GREEN);
-		squares[1][1].setBackground(Color.GREEN);
-		squares[1][2].setBackground(Color.GREEN);
+		squares[1][0].setBackground(Color.black);
+		squares[1][1].setBackground(Color.black);
+		squares[1][2].setBackground(Color.black);
 		
 		squares[2][0].setIcon(soldier);
 		squares[2][1].setIcon(hero);
