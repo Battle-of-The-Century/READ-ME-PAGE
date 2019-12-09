@@ -178,11 +178,21 @@ public class StageGUI extends JFrame implements ActionListener, MouseListener {
 	}
 	
 
-	public void damageReceived(){
-		min1Hp = minion1.getHealthPoints() - Unit.getAttack();
-		min2Hp = minion2.getHealthPoints() - Unit.getAttack();
-		bossHp = boss.getHealthPoints() - Unit.getAttack(); 
-		}
+	public static ArrayList damageReceived(){
+		ArrayList<MonsterUnits> monsterUnitList = new ArrayList<MonsterUnits>() {
+			{
+			add(minion1);
+			minion1 += Unit.getAttack();
+			add(boss);
+			
+			add(minion2);
+			}
+		};
+		
+		
+		
+		return monsterUnitList;
+	}
 	
 	public static int addPoints() {
 		points += Unit.getAttack();
